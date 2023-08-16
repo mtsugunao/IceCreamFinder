@@ -12,7 +12,7 @@
 
 <body>
     <p>登録フォーム</p>
-    <form action="{{ route('shop.shop') }}" method="post">
+    <form action="{{ route('shop.store') }}" method="post">
         @csrf
         <label for="shop-name">名前</label>
         <textarea id="shop-name" type="text" name="name"

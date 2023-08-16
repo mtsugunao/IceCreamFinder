@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Shop\Update;
+namespace App\Http\Controllers\Shop;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Shop;
-class IndexController extends Controller
+
+class DetailController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -14,6 +15,6 @@ class IndexController extends Controller
     {
         $shopId = (int) $request->route('shopId');
         $shop = Shop::where('id', $shopId)->firstOrFail();
-        return view('shop.update')->with('shop', $shop);
+        return view('shop.detail')->with('shop', $shop);
     }
 }

@@ -32,12 +32,14 @@ Route::get('/shop', \App\Http\Controllers\Shop\IndexController::class)->name('sh
 
 Route::get('/shop/create', \App\Http\Controllers\Shop\CreateController::class)->name('shop.create');
 
-Route::post('/shop/shop', \App\Http\Controllers\Shop\ShopController::class)->name('shop.shop');
+Route::post('/shop/store', \App\Http\Controllers\Shop\StoreController::class)->middleware('auth')->name('shop.store');
 
-Route::get('/shop/update/{shopId}', \App\Http\Controllers\Shop\Update\IndexController::class)->name('shop.update.index')->where('shopId', '[0-9]+');
+Route::get('/shop/detail/{shopId}', \App\Http\Controllers\Shop\DetailController::class)->name('shop.detail');
+
+Route::get('/shop/update/{shopId}', \App\Http\Controllers\Shop\Update\ShowController::class)->middleware('auth')->name('shop.update.show')->where('shopId', '[0-9]+');
 
 Route::put('/shop/update/{shopId}', \App\Http\Controllers\Shop\Update\PutController::class)->name('shop.update.put')->where('shopId', '[0-9]+');
 
-Route::delete('/shop/delete/{shopId}', \App\Http\Controllers\Shop\DeleteController::class)->name('shop.delete');
+Route::delete('/shop/delete/{shopId}', \App\Http\Controllers\Shop\DeleteController::class)->middleware('auth')->name('shop.delete');
 
 require __DIR__.'/auth.php';

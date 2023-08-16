@@ -18,6 +18,6 @@ class PutController extends Controller
         $shop->name = $request->shopName();
         $shop->address = $request->address();
         $shop->save();
-        return redirect()->route('shop.update.index', ['shopId' => $shop->id])->with('feedback.success', "お店情報を編集しました");
+        return redirect()->route('shop.update.show', ['shopId' => $shop->id])->with('feedback.success', "お店情報を編集しました");
     }
 }

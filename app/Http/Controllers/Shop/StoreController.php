@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Shop\CreateRequest;
 use App\Models\Shop;
 
-class ShopController extends Controller
+class StoreController extends Controller
 {
     /**
      * Handle the incoming request.

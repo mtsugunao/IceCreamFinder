@@ -17,20 +17,12 @@
     @endif
     <div>
         @foreach($shops as $shop)
-        <details>
-            <summary>{{ $shop->name }} {{ $shop->address }}</summary>
-            <div>
-                <a href="{{ route('shop.update.index', ['shopId' => $shop->id]) }}">編集</a>
-                <form action="{{ route('shop.delete', ['shopId' => $shop->id]) }}" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit">削除</button>
-                </form>
-            </div>
-        </details>
+            <a href="{{ route('shop.detail', ['shopId' => $shop->id]) }}">{{ $shop->name }} {{ $shop->address }}</a>
         @endforeach
     </div>
-<a href="/shop/create">お店を追加する</a>
+@auth
+<a href="{{ route('shop.create') }}">お店を追加する</a>
+@endauth
 </body>
 
 </html>
