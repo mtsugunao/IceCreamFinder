@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Shop;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Shop;
+use App\Models\Menu;
 
 class DetailController extends Controller
 {
@@ -15,6 +16,7 @@ class DetailController extends Controller
     {
         $shopId = (int) $request->route('shopId');
         $shop = Shop::where('id', $shopId)->firstOrFail();
-        return view('shop.detail')->with('shop', $shop);
+        $menus = Menu::where('shop_id', $shopId)->get();
+        return view('shop.detail')->with('shop', $shop)->with('menus', $menus);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Shop\Update;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use App\Models\Menu;
 class ShowController extends Controller
 {
     /**
@@ -14,6 +15,7 @@ class ShowController extends Controller
     {
         $shopId = (int) $request->route('shopId');
         $shop = Shop::where('id', $shopId)->firstOrFail();
-        return view('shop.update')->with('shop', $shop);
+        $menus = Menu::where('shop_id', $shopId)->get();
+        return view('shop.update')->with('shop', $shop)->with('menus', $menus);
     }
 }

@@ -23,7 +23,9 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'menu_name.*' => 'required',
+            'menu_price.*' => 'required'
         ];
     }
 
@@ -34,4 +36,13 @@ class CreateRequest extends FormRequest
     public function address(): string {
         return $this->input('address');
     }
+
+    public function menu(): iterable  {
+        return $this->input('menu_name', []);
+    }
+
+    public function price(): iterable {
+        return $this->input('menu_price', []);
+    }
+
 }

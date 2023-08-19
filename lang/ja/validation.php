@@ -107,7 +107,7 @@ return [
     'prohibits'            => ':attribute フィールドは、:other が存在することを禁止します。',
     'regex'                => ':attributeには、有効な正規表現を指定してください。',
     'required'             => ':attributeは必ず指定してください。',
-    'required_array_keys'  => ':attributeフィールドには、：valuesのエントリを含める必要があります。',
+    'required_array_keys'  => ':attributeフィールドには、:valuesのエントリを含める必要があります。',
     'required_if'          => ':otherが:valueの場合、:attributeを指定してください。',
     'required_unless'      => ':otherが:values以外の場合、:attributeを指定してください。',
     'required_with'        => ':valuesが指定されている場合、:attributeも指定してください。',
@@ -136,6 +136,8 @@ return [
 
     'attributes' => [
         'name' => 'お店の名前',
-        'address' => 'お店の住所'
+        'address' => 'お店の住所',
+        'menu_name.*' => 'メニュー名',
+        'menu_price.*' => '値段'
     ]
 ];

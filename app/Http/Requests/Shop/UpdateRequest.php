@@ -23,7 +23,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'menu_name.*' => 'required',
+            'menu_price.*' => 'required'
         ];
     }
 
@@ -37,5 +39,13 @@ class UpdateRequest extends FormRequest
 
     public function id(): int {
         return (int) $this->route('shopId');
+    }
+
+    public function menu(): iterable {
+        return $this->input('menu_name');
+    }
+
+    public function price(): iterable {
+        return $this->input('menu_price');
     }
 }

@@ -13,6 +13,9 @@
 <body>
     <h1>{{ $shop->name }}</h1>
     <p>住所：{{ $shop->address }}</p>
+    @foreach($menus as $menu)
+    <p>名前：{{ $menu->name }} 値段：{{ $menu->price }}</p>
+    @endforeach
 @auth
     <div>
         <a href="{{ route('shop.update.show', ['shopId' => $shop->id]) }}">編集</a>

@@ -10,4 +10,8 @@ class Shop extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function menus() {
+        return $this->hasMany(Menu::class);
+    }
 }
