@@ -42,4 +42,15 @@ Route::put('/shop/update/{shopId}', \App\Http\Controllers\Shop\Update\PutControl
 
 Route::delete('/shop/delete/{shopId}', \App\Http\Controllers\Shop\DeleteController::class)->middleware('auth')->name('shop.delete');
 
-require __DIR__.'/auth.php';
+Route::get('/post', \App\Http\Controllers\Post\ShowController::class)->name('post.show');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/post/create', \App\Http\Controllers\Post\CreateController::class)->name('post.create');
+
+    Route::get('/post/update/{postId}', \App\Http\Controllers\Post\Update\IndexController::class)->name('post.update.index')->where('postId', '[0-9]+');
+
+    Route::put('/post/update/{postId}', \App\Http\Controllers\Post\Update\PutController::class)->name('post.update.put')->where('postId', '[0-9]+');
+
+    Route::delete('/post/delete/{postId}', \App\Http\Controllers\Post\DeleteController::class)->name('post.delete');
+});
+require __DIR__ . '/auth.php';

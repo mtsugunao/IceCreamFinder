@@ -136,6 +136,7 @@ return [
 
     'attributes' => [
         'name' => 'お店の名前',
-        'address' => 'お店の住所'
+        'address' => 'お店の住所',
+        'post' => '投稿内容'
     ]
 ];

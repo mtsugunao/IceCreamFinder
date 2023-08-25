@@ -17,7 +17,9 @@
     @endif
     <div>
         @foreach($shops as $shop)
+        <div>
             <a href="{{ route('shop.detail', ['shopId' => $shop->id]) }}">{{ $shop->name }} {{ $shop->address }}</a>
+        </div>
         @endforeach
     </div>
 @auth
