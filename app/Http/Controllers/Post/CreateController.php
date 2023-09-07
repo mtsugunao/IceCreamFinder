@@ -3,22 +3,23 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\Post\CreateRequest;
 use App\Models\Post;
+use App\Services\PostService;
 
 class CreateController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(CreateRequest $request)
+    public function __invoke(CreateRequest $request, PostService $postService)
     {
-        $post = new Post;
-        $post->user_id = $request->userId();
-        $post->comment = $request->postContent();
-        $post->shop_id = $request->shopId();
-        $post->save();
+        $postService->savePost(
+            $request->userId(),
+            $request->postContent(),
+            $request->shopId(),
+            $request->images()
+        );
         return redirect()->route('post.show');
     }
 }

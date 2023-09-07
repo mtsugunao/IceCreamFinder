@@ -82,7 +82,7 @@ return [
     ],
     'mac_address'          => ':attributeは有効なMACアドレスである必要があります。',
     'max'                  => [
-        'array'   => ':attributeの項目は、:max個以下にしてください。',
+        'array'   => ':attributeは:max個以下にしてください。',
         'file'    => ':attributeには、:max KB以下のファイルを指定してください。',
         'numeric' => ':attributeには、:max以下の数字を指定してください。',
         'string'  => ':attributeは、:max文字以下にしてください。',
@@ -137,6 +137,7 @@ return [
     'attributes' => [
         'name' => 'お店の名前',
         'address' => 'お店の住所',
-        'post' => '投稿内容'
+        'post' => '投稿内容',
+        'images' => '写真'
     ]
 ];

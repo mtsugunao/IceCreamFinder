@@ -20,8 +20,7 @@ class DeleteController extends Controller
         if (!$postService->checkOwnPost($request->user()->id, $postId)) {
             throw new AccessDeniedHttpException();
         }
-        $post = Post::where('id', $postId)->firstOrFail();
-        $post->delete();
+        $postService->deletePost($postId);
         return redirect()->route('post.show')->with('feedback.success', "投稿を削除しました");
     }
 }

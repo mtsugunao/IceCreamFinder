@@ -24,6 +24,8 @@ class CreateRequest extends FormRequest
         return [
             'post' => 'required|max:140',
             'shop_id' => 'required|exists:shops,id',
+            'images' => 'array|max:4',
+            'images.*' => 'required|image|mimes:jpeg,png,gif|max:2048'
         ];
     }
 
@@ -37,5 +39,10 @@ class CreateRequest extends FormRequest
 
     public function shopId(): int {
         return $this->input('shop_id');
+    }
+
+    public function images(): array {
+        return $this->file('images', []);
+
     }
 }

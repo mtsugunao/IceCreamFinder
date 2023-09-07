@@ -16,4 +16,8 @@ class Post extends Model
     public function shop() {
         return $this->belongsTo(Shop::class);
     }
+
+    public function images() {
+        return $this->belongsToMany(Image::class, 'post_images')->using(PostImage::class);
+    }
 }
