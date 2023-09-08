@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function shop() {
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function images() {
+        return $this->belongsToMany(Image::class, 'post_images')->using(PostImage::class);
+    }
 }
